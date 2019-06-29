@@ -6,16 +6,17 @@ import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup"
 
 const styles = theme => ({
-   paper: {
-     marginTop: theme.spacing * 8,
-     display: "flex",
-     flexDirection: "column",
-     alignItems: "center",
-     padding: `${theme.spacing * 5}px ${theme.spacing * 5}px ${theme.spacing * 5}px`
-   },
-   container: {
-     maxWidth: "200px"
-   }
+ paper: {
+   margin: theme.spacing(8,0),
+   padding: theme.spacing(8,10),
+   display: "flex",
+   flexDirection: "column",
+   alignItems: "center",
+ },
+ container: {
+   minWidth: "500px",
+   backgroundColor: "#f5f5f5",
+ }
 });
 
 const validationSchema = Yup.object({
@@ -45,12 +46,12 @@ class InputForm extends Component {
   };
 
  render() {
-   const classes = this.props;
+  const {classes} = this.props;
    const values = { name: "", email: "", confirmPassword: "", password: "" };
    return (
      <React.Fragment>
            <div className={classes.container}>
-           <Paper elevation = {1} className={classes.paper}>
+           <Paper elevation = {1} className = {classes.paper}>
            <h1>Form</h1>
            <Formik
              render = {props => <Form {...props} />}

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/styles';
 import TextField from "@material-ui/core/TextField";
 
 export const Form = (props) => {
@@ -19,6 +20,14 @@ export const Form = (props) => {
     console.log(errors);
     setFieldTouched(name, true, false);
   }
+
+  const useStyles = makeStyles({
+    root: {
+       padding: "15px 0 0 0"
+    },
+  });
+
+  const classes = useStyles();
 
   return (
    <form onSubmit={handleSubmit}>
@@ -71,6 +80,7 @@ export const Form = (props) => {
        variant="raised"
        color="primary"
        disabled={!isValid}
+       className={classes.root}
 
      >
        Submit
